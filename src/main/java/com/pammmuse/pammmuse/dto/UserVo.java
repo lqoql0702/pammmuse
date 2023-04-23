@@ -14,5 +14,6 @@ public class UserVo {
     private String password;
     private String address;
     private String phone;
+    private String sns_id;
 
 }

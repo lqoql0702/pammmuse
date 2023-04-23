@@ -2,6 +2,8 @@ package com.pammmuse.pammmuse.controller;
 
 import com.pammmuse.pammmuse.dto.UserVo;
 import com.pammmuse.pammmuse.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -12,16 +14,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
     @Autowired
     private UserService userService;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/")
     public String home(Model model) { // 인증된 사용자의 정보를 보여줌
@@ -109,6 +116,36 @@ public class UserController {
             userService.withdraw(id);
         }
         SecurityContextHolder.clearContext(); // SecurityContextHolder에 남아있는 token 삭제
+        return "redirect:/";
+    }
+
+    @GetMapping("/user/kakao/callback")
+    public String kakaoLogin(@RequestParam String code) throws IOException {
+        // 접속토큰 get
+        String kakaoToken = userService.getReturnAccessToken(code);
+        logger.info("token"+kakaoToken);
+
+        // 접속자 정보 get
+        Map<String, Object> result = userService.getUserInfo(kakaoToken);
+
+        String sns_id = (String) result.get("id");
+        String username = (String) result.get("nickname");
+        String email = (String) result.get("email");
+        String userpw = sns_id;
+
+        UserVo userVo = new UserVo();
+        logger.info("snsid" + userService.kakaoLogin(sns_id));
+        //일치하는 sns_id 없을 시 회원가입
+        if(userService.kakaoLogin(sns_id) == null){
+            userVo.setUsername(email);
+            userVo.setPassword(userpw);
+            userVo.setName(username);
+            userVo.setSns_id(sns_id);
+            userVo.setEmail(email);
+            userService.kakaoJoin(userVo);
+        }
+        userService.kakaoLogin(sns_id);
+        logger.info("snsid" + userService.kakaoLogin(sns_id));
         return "redirect:/";
     }
 }

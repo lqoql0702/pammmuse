@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pammmuse.pammmuse.repository.ProductMapper">
+
+    <!-- 상품 조회 페이지 -->
+    <select id="getProductInfo" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+        select * from product
+        where id = #{id}
+    </select>
+
+    <!-- 상품 리스트 -->
+    <select id="productGetList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+        select id, product_name, product_price, image_url
+        from product
+    </select>
+
+    <!-- 카테고리별 상품 리스트 -->
+    <select id="productGetCateList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+        select id, product_name, cate_code, product_price, image_url
+        from product
+        where cate_code = #{cate_code}
+    </select>
+
+
+</mapper>

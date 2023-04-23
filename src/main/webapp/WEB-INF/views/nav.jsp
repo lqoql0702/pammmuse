@@ -84,6 +84,24 @@
         right: 0;
         bottom: -20px;
     }
+    .dropdown {
+        /* border: 1px solid #000; */
+        /* width: 200px; */
+        display: inline-block;
+    }
+    .dropdown-content{
+        display: none;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 7px;
+        text-align: center;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+
+    }
     </style>
 
 </head>
@@ -98,11 +116,10 @@
                     <a class="nav-link" href="/main">Home</a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">Notice</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Top10</a>
-                <li class="nav-item"> <a class="nav-link" href="#">Dress</a>
-                <li class="nav-item"> <a class="nav-link" href="#">Top</a>
-                <li class="nav-item"> <a class="nav-link" href="#">Search</a>
-                </li>
+                <li class="nav-item"> <a class="nav-link" href="/product/list?c=10&l=1">Top10</a></li>
+                <li class="nav-item"><a class="nav-link" href="/product/dress?c=21&l=1">Dress</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/product/list?c=40&l=1">Top</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Search</a></li>
             </ul>
         </div>
     </div>
