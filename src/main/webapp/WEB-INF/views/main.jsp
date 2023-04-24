@@ -434,26 +434,26 @@
 <div class="container">
     <div class="row">
         <c:forEach items="${list}" var="list">
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid9">
-                <div class="product-image9">
-                    <a href="/productDetail/${list.id}">
-                        <img class="pic-1"  width="200px" height="250px" src="${list.image_url}">
-                    </a>
-                    <a href="/productDetail/${list.id}" class="fa fa-search product-full-view"></a>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="/productDetail/${list.id}"> ${list.product_name}</a></h3>
-                    <div class="price">
-                        <div class="product-price-discount">
-                            <span><fmt:formatNumber value="${list.product_price - (list.product_price*list.product_discount)}" pattern="#,### 원" /></span>
-                            <span class="line-through"><fmt:formatNumber value="${list.product_price}" pattern="#,### 원" /></span>
-                        </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid9">
+                    <div class="product-image9">
+                        <a href="/productDetail/${list.id}">
+                            <img class="pic-1"  width="200px" height="250px" src="${list.image_url}">
+                        </a>
+                        <a href="/productDetail/${list.id}" class="fa fa-search product-full-view"></a>
                     </div>
-                    <a class="add-to-cart" href="">VIEW PRODUCTS</a>
+                    <div class="product-content">
+                        <h3 class="title"><a href="/productDetail/${list.id}"> ${list.product_name}</a></h3>
+                        <div class="price">
+                            <div class="product-price-discount">
+                                <span><fmt:formatNumber value="${list.product_price - (list.product_price*list.product_discount)}" pattern="#,### 원" /></span>
+                                <span class="line-through"><fmt:formatNumber value="${list.product_price}" pattern="#,### 원" /></span>
+                            </div>
+                        </div>
+                        <a class="add-to-cart" href="">VIEW PRODUCTS</a>
+                    </div>
                 </div>
             </div>
-        </div>
         </c:forEach>
     </div>
 </div>
