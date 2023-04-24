@@ -257,7 +257,7 @@
             color: #c0392b;
         }
         .product-grid9 .price {
-            color: #0089ff;
+            color: #050505;
             font-size: 17px;
             margin: 0;
             display: block;
@@ -287,6 +287,13 @@
             }
         }
 
+        .line-through {
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #a5a5a5;
+        }
     </style>
 </head>
 <body>
@@ -316,15 +323,6 @@
                                     <div class="thumb-content">
                                         <h4>aaa</h4>
                                         <p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -337,15 +335,6 @@
                                     <div class="thumb-content">
                                         <h4>bbb</h4>
                                         <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -358,15 +347,6 @@
                                     <div class="thumb-content">
                                         <h4>ccc</h4>
                                         <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -379,15 +359,6 @@
                                     <div class="thumb-content">
                                         <h4>ddd</h4>
                                         <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -402,17 +373,8 @@
                                         <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Sony Play Station</h4>
+                                        <h4>eee</h4>
                                         <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -423,17 +385,8 @@
                                         <img src="https://cf.product-image.s.zigzag.kr/original/c/11/821/538/118215384-2509995847440005712.jpeg?width=1080&height=1080&quality=80&format=jpeg" class="img-responsive img-fluid" alt="">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Macbook Pro</h4>
+                                        <h4>fff</h4>
                                         <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -444,17 +397,8 @@
                                         <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Bose Speaker</h4>
+                                        <h4>ggg</h4>
                                         <p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
@@ -465,111 +409,15 @@
                                         <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
                                     </div>
                                     <div class="thumb-content">
-                                        <h4>Samsung Galaxy S8</h4>
+                                        <h4>hhh</h4>
                                         <p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
                                         <a href="#" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item carousel-item">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Apple iPhone</h4>
-                                        <p class="item-price"><strike>$369.00</strike> <span>$349.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Canon DSLR</h4>
-                                        <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Google Pixel</h4>
-                                        <p class="item-price"><strike>$450.00</strike> <span>$418.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Apple Watch</h4>
-                                        <p class="item-price"><strike>$350.00</strike> <span>$330.00</span></p>
-                                        <div class="star-rating">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- Carousel controls -->
                 <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
@@ -596,7 +444,12 @@
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="/productDetail/${list.id}"> ${list.product_name}</a></h3>
-                    <div class="price">  ${list.product_price}</div>
+                    <div class="price">
+                        <div class="product-price-discount">
+                            <span><fmt:formatNumber value="${list.product_price - (list.product_price*list.product_discount)}" pattern="#,### 원" /></span>
+                            <span class="line-through"><fmt:formatNumber value="${list.product_price}" pattern="#,### 원" /></span>
+                        </div>
+                    </div>
                     <a class="add-to-cart" href="">VIEW PRODUCTS</a>
                 </div>
             </div>
@@ -604,6 +457,6 @@
         </c:forEach>
     </div>
 </div>
-
+<%@include file="footer.jsp"%>
 </body>
 </html>

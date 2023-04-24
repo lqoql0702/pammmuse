@@ -10,13 +10,13 @@
 
     <!-- 상품 리스트 -->
     <select id="productGetList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
-        select id, product_name, product_price, image_url
+        select id, product_name, product_price, product_discount, image_url
         from product
     </select>
 
     <!-- 카테고리별 상품 리스트 -->
     <select id="productGetCateList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
-        select id, product_name, cate_code, product_price, image_url
+        select id, product_name, cate_code, product_price, product_discount, image_url
         from product
         where cate_code = #{cate_code}
     </select>

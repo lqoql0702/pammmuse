@@ -257,7 +257,7 @@
             color: #c0392b;
         }
         .product-grid9 .price {
-            color: #0089ff;
+            color: #050505;
             font-size: 17px;
             margin: 0;
             display: block;
@@ -286,7 +286,13 @@
                 margin-bottom: 30px;
             }
         }
-
+        .line-through {
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #a5a5a5;
+        }
     </style>
 </head>
 <body>
@@ -306,7 +312,11 @@
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="/productDetail/${list.id}"> ${list.product_name}</a></h3>
-                        <div class="price">  ${list.product_price}</div>
+                        <div class="price">
+                            <div class="product-price-discount"><span><fmt:formatNumber value="${list.product_price - (list.product_price*list.product_discount)}" pattern="#,### 원" /></span>
+                            <span class="line-through"><fmt:formatNumber value="${list.product_price}" pattern="#,### 원" /></span>
+                            </div>
+                        </div>
                         <a class="add-to-cart" href="">VIEW PRODUCTS</a>
                     </div>
                 </div>
@@ -314,4 +324,5 @@
         </c:forEach>
     </div>
 </div>
+<%@include file="../footer.jsp"%>
 </body>
