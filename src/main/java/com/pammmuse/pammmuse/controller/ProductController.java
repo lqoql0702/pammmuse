@@ -1,5 +1,7 @@
 package com.pammmuse.pammmuse.controller;
 
+import com.pammmuse.pammmuse.domain.Criteria;
+import com.pammmuse.pammmuse.dto.PageVo;
 import com.pammmuse.pammmuse.dto.ProductVo;
 import com.pammmuse.pammmuse.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,18 @@ public class ProductController {
         model.addAttribute("productInfo", productService.getProductInfo(id));
 
         return "/product/detail";
+    }
+
+    /*상품 검색*/
+    @GetMapping("/product/search")
+    public String searchProductGet(Criteria cri, Model model){
+        List<ProductVo> list = productService.searchProduct(cri);
+
+        if(!list.isEmpty()){
+            model.addAttribute("list", list);
+        }else{
+            model.addAttribute("pageMaker",new PageVo(cri, productService.getProductTotal(cri)));
+        }
+        return "/product/search";
     }
 }

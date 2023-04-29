@@ -21,5 +21,42 @@
         where cate_code = #{cate_code}
     </select>
 
+    <!-- criteria(검색조건) -->
+    <sql id="criteria">
+
+        <trim prefix="where (" suffix=")" prefixOverrides="AND">
+            <foreach item="type" collection="typeArr">
+                <trim prefix="AND">
+                    <choose>
+<!--                        <when test="type == 'C'.toString()">-->
+<!--                            cate_code like concat ('%', #{cate_code}, '%')-->
+<!--                        </when>-->
+                        <when test="type == 'T'.toString()">
+                            product_name like concat ('%', #{keyword}, '%')
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+
+    </sql>
+
+    <!-- 상품 검색 -->
+    <select id="searchProduct" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+        select  id, product_name, cate_code, product_price, product_discount, image_url
+        from product
+        <include refid="criteria"></include>
+        order by id desc
+        limit #{skip}, #{amount}
+
+    </select>
+
+    <!-- 상품 총 개수 -->
+    <select id="getProductTotal" resultType="int">
+        select count(*) from product
+
+        <include refid="criteria"></include>
+
+    </select>
 
 </mapper>

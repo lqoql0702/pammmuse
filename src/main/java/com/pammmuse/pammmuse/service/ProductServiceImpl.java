@@ -1,5 +1,6 @@
 package com.pammmuse.pammmuse.service;
 
+import com.pammmuse.pammmuse.domain.Criteria;
 import com.pammmuse.pammmuse.dto.ProductVo;
 import com.pammmuse.pammmuse.repository.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,21 @@ public class ProductServiceImpl implements ProductService{
     /*카테고리별 상품 리스트*/
     @Override
     public List<ProductVo> productGetCateList(int cate_code){
+
         return productMapper.productGetCateList(cate_code);
     }
+
+    /* 상품 검색 */
+    @Override
+    public List<ProductVo> searchProduct(Criteria cri){
+        return productMapper.searchProduct(cri);
+    }
+
+    /* 상품 총 갯수 */
+    @Override
+    public int getProductTotal(Criteria cri){
+        return productMapper.getProductTotal(cri);
+    }
+
+
 }
