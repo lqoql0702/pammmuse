@@ -77,6 +77,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken)
             return "/user/signup";
+
         return "redirect:/";
     }
 

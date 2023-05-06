@@ -4,9 +4,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<%--    <meta name="_csrf_header" th:content="${_csrf.headerName}">--%>
+<%--    <meta name="_csrf" th:content="${_csrf.token}">--%>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <style type="text/css">
         .pd-wrap {
@@ -193,7 +203,7 @@
             width: 60px;
             text-align: center;
         }
-        .round-black-btn {
+        .btn_cart {
             border-radius: 4px;
             background: #212529;
             color: #fff;
@@ -203,8 +213,8 @@
             border: solid 2px #212529;
             transition: all 0.5s ease-in-out 0s;
         }
-        .round-black-btn:hover,
-        .round-black-btn:focus {
+        .btn_cart:hover,
+        .btn_cart:focus {
             background: transparent;
             color: #212529;
             text-decoration: none;
@@ -324,7 +334,7 @@
                             <input type="text" name="quantity" value="1" class="qty">
                             <div class="qtyplus">+</div>
                         </form>
-                        <a href="#" class="round-black-btn">Add to Cart</a>
+                        <a class="btn_cart" type="submit">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -335,14 +345,11 @@
     <%@include file="../footer.jsp"%>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
         $(".qtyminus").on("click",function(){
             var now = $(".qty").val();
             if ($.isNumeric(now)){
-                if (parseInt(now) -1> 0)
+                if ((parseInt(now)-1) > 0)
                 { now--;}
                 $(".qty").val(now);
             }
@@ -353,7 +360,43 @@
                 $(".qty").val(parseInt(now)+1);
             }
         });
-        console.log(${prodcutInfo.product_name});
+
+        // 서버로 전송할 데이터
+        const form = {
+            username : '${user.username}',
+            product_id : '${productInfo.id}',
+            product_count : ''
+        }
+
+        var csrfToken = $("meta[name='_csrf']").attr("content");
+        $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+            if (options['type'].toLowerCase() === "post") {
+                jqXHR.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            }
+        });
+        // 장바구니 추가 버튼
+        $(".btn_cart").on("click", function(e){
+            form.product_count = $(".qty").val();
+            console.log(form.username);
+            console.log(form.product_id);
+                $.ajax({
+                    url: '/cart/add',
+                    type: 'POST',
+                    data: form,
+                    success: function (result) {
+                        if (result == "0") {
+                            alert("장바구니에 추가를 하지 못하였습니다.");
+                        } else if (result == "1") {
+                            alert("장바구니에 추가되었습니다.");
+                        } else if (result == "2") {
+                            alert("장바구니에 이미 추가되어져 있습니다.");
+                        } else if (result == "5") {
+                            alert("로그인이 필요합니다.");
+                        }
+                    }
+                })
+
+        });
 
 </script>
 </body>

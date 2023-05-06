@@ -74,8 +74,8 @@
             <div class="col-md-4 col-xl-3">
                 <h5>Links</h5>
                 <ul class="nav-list">
-                    <li><a href="#">Git</a></li>
-                    <li><a href="#">Projects</a></li>
+                    <li><a href="https://github.com/lqoql0702">Git</a></li>
+                    <li><a href="https://github.com/lqoql0702/pammmuse">Projects</a></li>
                     <li><a href="#">Portfolio</a></li>
                 </ul>
             </div>

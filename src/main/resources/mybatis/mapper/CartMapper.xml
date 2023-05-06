@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pammmuse.pammmuse.repository.CartMapper">
+    <!-- 카트 추가 -->
+    <insert id="addCart">
+
+        insert into cart(username, product_id, product_count)
+        values(#{username}, #{product_id}, #{product_count})
+
+    </insert>
+
+
+    <!-- 카트 삭제 -->
+    <delete id="deleteCart">
+
+        delete from cart where id = #{id}
+
+    </delete>
+
+    <!-- 카트 수량 수정 -->
+    <update id="modifyCount">
+
+        update cart set product_count=#{product_count} where id = #{id}
+
+    </update>
+
+
+    <!-- 카트 목록 -->
+    <select id="getCart" resultType="com.pammmuse.pammmuse.dto.CartVo">
+
+        select a.id, a.username, a.product_id, a.product_count, b.product_name, b.product_price, b.product_discount
+        from cart a left outer join product b on a.product_id = b.id
+        where username = #{username}
+
+    </select>
+
+    <!-- 카트 확인 -->
+    <select id="checkCart" resultType="com.pammmuse.pammmuse.dto.CartVo">
+
+        select * from cart
+        where username = #{username} and product_id = #{product_id}
+
+    </select>
+
+
+</mapper>

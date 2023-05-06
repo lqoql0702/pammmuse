@@ -300,136 +300,139 @@
 <%@include file="top.jsp"%>
 <%@include file="nav.jsp"%>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<%--<div class="container">--%>
+<%--    <div class="row">--%>
+<%--        <c: items="${list}" var="list">--%>
+<%--        <div class="col-md-12">--%>
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner">
-                    <div class="item carousel-item active">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTojsFZTJ86npdf0ipLKOyh9n73R4Up9m-09A&usqp=CAU" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>aaa</h4>
-                                        <p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9HLbGDf_aha4Q5cIDYyPC5iktnDkaUNR0Fg&usqp=CAU" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>bbb</h4>
-                                        <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://www.femmemuse.co.kr/web/product/medium/202108/d67180ec7214c88c578c4a37af3699df.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>ccc</h4>
-                                        <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/c/11/821/538/118215384-2509995847440005712.jpeg?width=1080&height=1080&quality=80&format=jpeg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>ddd</h4>
-                                        <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item carousel-item">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>eee</h4>
-                                        <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://cf.product-image.s.zigzag.kr/original/c/11/821/538/118215384-2509995847440005712.jpeg?width=1080&height=1080&quality=80&format=jpeg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>fff</h4>
-                                        <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>ggg</h4>
-                                        <p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <div class="img-box">
-                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>hhh</h4>
-                                        <p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Carousel controls -->
-                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<%--            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">--%>
+<%--                <!-- Carousel indicators -->--%>
+<%--                <ol class="carousel-indicators">--%>
+<%--                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>--%>
+<%--                    <li data-target="#myCarousel" data-slide-to="1"></li>--%>
+<%--                    <li data-target="#myCarousel" data-slide-to="2"></li>--%>
+<%--                </ol>--%>
+<%--                <!-- Wrapper for carousel items -->--%>
+<%--                <div class="carousel-inner">--%>
+<%--                    <div class="item carousel-item active">--%>
+<%--                        <div class="row">--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <a href="/productDetail/1">--%>
+<%--                                        <img src="${list[1].image_url}" class="img-responsive img-fluid" alt="">--%>
+<%--                                        </a>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4><a href="/productDetail/1"> ${list[1].product_name}</a></h4>--%>
+<%--                                        <p class="item-price"><strike><fmt:formatNumber value="${list[1].product_price}" pattern="#,### 원" /></strike>--%>
+<%--                                            <span><fmt:formatNumber value="${list[1].product_price - (list[1].product_price*list[1].product_discount)}" pattern="#,### 원" /></span></p>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9HLbGDf_aha4Q5cIDYyPC5iktnDkaUNR0Fg&usqp=CAU" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>bbb</h4>--%>
+<%--                                        <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://www.femmemuse.co.kr/web/product/medium/202108/d67180ec7214c88c578c4a37af3699df.jpg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>ccc</h4>--%>
+<%--                                        <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://cf.product-image.s.zigzag.kr/original/c/11/821/538/118215384-2509995847440005712.jpeg?width=1080&height=1080&quality=80&format=jpeg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>ddd</h4>--%>
+<%--                                        <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="item carousel-item">--%>
+<%--                        <div class="row">--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>eee</h4>--%>
+<%--                                        <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://cf.product-image.s.zigzag.kr/original/c/11/821/538/118215384-2509995847440005712.jpeg?width=1080&height=1080&quality=80&format=jpeg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>fff</h4>--%>
+<%--                                        <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>ggg</h4>--%>
+<%--                                        <p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-sm-3">--%>
+<%--                                <div class="thumb-wrapper">--%>
+<%--                                    <div class="img-box">--%>
+<%--                                        <img src="https://image.ibb.co/g0CAPp/ipad.jpg" class="img-responsive img-fluid" alt="">--%>
+<%--                                    </div>--%>
+<%--                                    <div class="thumb-content">--%>
+<%--                                        <h4>hhh</h4>--%>
+<%--                                        <p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>--%>
+<%--                                        <a href="#" class="btn btn-primary">Add to Cart</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <!-- Carousel controls -->--%>
+<%--                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">--%>
+<%--                    <i class="fa fa-angle-left"></i>--%>
+<%--                </a>--%>
+<%--                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">--%>
+<%--                    <i class="fa fa-angle-right"></i>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        </c:>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <br/>
 <div class="container">
     <div class="row">

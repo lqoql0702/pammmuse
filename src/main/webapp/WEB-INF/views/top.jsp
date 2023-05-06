@@ -51,6 +51,9 @@
                 <a href="/user/mypage">MyPage</a>
             </li>
             <li>
+                <a href="/cart/${user.username}">cart</a>
+            </li>
+            <li>
                 <a href="/user/logout">Logout</a>
             </li>
         </c:if>

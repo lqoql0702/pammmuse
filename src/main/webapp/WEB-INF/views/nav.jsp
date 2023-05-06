@@ -120,17 +120,6 @@
                 <li class="nav-item"><a class="nav-link" href="/product/dress?c=21&l=1">Dress</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/product/list?c=40&l=1">Top</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/product/search">Search</a></li>
-<%--                <div class="search_wrap">--%>
-<%--                    <form id="searchForm" action="/product/search" method="get">--%>
-<%--                        <div class="search_input">--%>
-<%--                            <select name="type">--%>
-<%--                                <option value="T">상품명</option>--%>
-<%--                            </select>--%>
-<%--                            <input type="text" name="keyword">--%>
-<%--                            <button class='btn search_btn'>검 색</button>--%>
-<%--                        </div>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
             </ul>
         </div>
     </div>

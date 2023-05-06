@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -30,7 +31,7 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String username = (String) authentication.getPrincipal(); // 로그인 창에 입력한 email
+        String username = (String) authentication.getPrincipal(); // 로그인 창에 입력한 id
         String password = (String) authentication.getCredentials(); // 로그인 창에 입력한 password
 
         PasswordEncoder passwordEncoder = userService.passwordEncoder();
