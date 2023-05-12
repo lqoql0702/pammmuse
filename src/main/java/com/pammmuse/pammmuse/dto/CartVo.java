@@ -10,6 +10,7 @@ public class CartVo {
     private String username;
     private int product_id;
     private int product_count;
+    private String image_url;
 
     //boo
     private String product_name;

@@ -15,6 +15,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // 권한에 따라 허용하는 url 설정
+
         http
                 .authorizeRequests()
                 .antMatchers("/user/mypage","/user/edit").authenticated()
@@ -35,6 +36,10 @@ public class SecurityConfig {
                 .logoutUrl("/user/logout")
                 .logoutSuccessUrl("/main");	// logout에 성공하면 /로 redirect
 
+        http    .csrf().disable();
+
         return http.build();
     }
+
+
 }
