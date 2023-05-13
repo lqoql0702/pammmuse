@@ -1,13 +1,8 @@
 package com.pammmuse.pammmuse.service;
 
-import com.pammmuse.pammmuse.dto.UserVo;
-import com.pammmuse.pammmuse.repository.UserMapper;
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.pammmuse.pammmuse.model.UserVo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -18,6 +13,10 @@ public interface UserService {
     public void edit(UserVo userVo);
     public void withdraw(Long id);
     public PasswordEncoder passwordEncoder();
+
+    /* 주문자 정보 */
+    public UserVo getOrderUserInfo(String username);
+
 
     /*카카오 로그인*/
     public String getReturnAccessToken(String code);

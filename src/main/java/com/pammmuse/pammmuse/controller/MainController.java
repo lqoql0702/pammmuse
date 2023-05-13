@@ -1,21 +1,16 @@
 package com.pammmuse.pammmuse.controller;
 
-import com.pammmuse.pammmuse.dto.ProductVo;
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.service.ProductService;
 import com.pammmuse.pammmuse.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.PortResolverImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 

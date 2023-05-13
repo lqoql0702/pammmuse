@@ -1,7 +1,7 @@
 package com.pammmuse.pammmuse.repository;
 
 import com.pammmuse.pammmuse.domain.Criteria;
-import com.pammmuse.pammmuse.dto.ProductVo;
+import com.pammmuse.pammmuse.model.ProductVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

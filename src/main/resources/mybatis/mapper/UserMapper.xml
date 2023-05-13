@@ -3,7 +3,7 @@
 <mapper namespace="com.pammmuse.pammmuse.repository.UserMapper">
 
     <!-- User 테이블 가져오기 -->
-    <select id="getUserList" resultType="com.pammmuse.pammmuse.dto.UserVo">
+    <select id="getUserList" resultType="com.pammmuse.pammmuse.model.UserVo">
         SELECT *
         FROM user
     </select>
@@ -17,13 +17,13 @@
     </insert>
 
     <!-- 회원 정보 가져오기 -->
-    <select id="getUserByUserName" resultType="com.pammmuse.pammmuse.dto.UserVo">
+    <select id="getUserByUserName" resultType="com.pammmuse.pammmuse.model.UserVo">
         SELECT *
         FROM user
         WHERE username = #{username}
     </select>
 
-    <select id="getUserById" resultType="com.pammmuse.pammmuse.dto.UserVo">
+    <select id="getUserById" resultType="com.pammmuse.pammmuse.model.UserVo">
         SELECT *
         FROM user
         WHERE id = #{id}
@@ -47,6 +47,15 @@
         FROM user
         WHERE id = #{id}
     </delete>
+
+    <!-- 주문자 정보 -->
+    <select id="getOrderUserInfo" resultType="com.pammmuse.pammmuse.model.UserVo">
+
+        SELECT username, name, email, address
+        FROM user
+        WHERE username = #{username}
+
+    </select>
 
     <insert id="kakaoInsert">
         INSERT INTO user

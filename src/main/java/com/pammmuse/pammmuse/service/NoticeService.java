@@ -1,6 +1,6 @@
 package com.pammmuse.pammmuse.service;
 
-import com.pammmuse.pammmuse.dto.NoticeVo;
+import com.pammmuse.pammmuse.model.NoticeVo;
 
 import java.util.List;
 

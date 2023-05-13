@@ -344,6 +344,7 @@
                                 <input type="hidden" class="individual_sale_price_input" value="${ci.sale_price}">
                                 <input type="hidden" class="individual_product_count_input" value="${ci.product_count}">
                                 <input type="hidden" class="individual_total_price_input" value="${ci.sale_price * ci.product_count}">
+                                <input type="hidden" class="individual_product_id_input" value="${ci.id}">
                             </td>
                         </tr>
                         </c:forEach>
@@ -368,6 +369,11 @@
                     <form action="/cart/delete" method="post" class="quantity_delete_form">
                         <input type="hidden" name="id" class="delete_id">
                         <input type="hidden" name="username" value="${user.username}">
+                    </form>
+
+                    <!-- 주문 form -->
+                    <form action="/order/${user.username}" method="get" class="order_form">
+
                     </form>
                 </div>
                 <!-- /.table-cart -->
@@ -397,7 +403,7 @@
                             </tbody>
                         </table>
                         <div class="btn-cart-totals">
-                            <a href="#" class="checkout round-black-btn" title="">Proceed to Checkout</a>
+                            <a class="order_btn round-black-btn" >Buy</a>
                         </div>
                         <!-- /.btn-cart-totals -->
                     </form>
@@ -497,6 +503,35 @@
         // 최종 가격(총 가격 + 배송비)
         $(".final_total_price_span").text(final_total_price.toLocaleString());
     }
+
+    /* 주문 페이지 이동 */
+    $(".order_btn").on("click", function(){
+
+        let form_contents ='';
+        let orderNumber = 0;
+
+        $(".cart_info_td").each(function(index, element){
+
+            if($(element).find(".individual_cart_checkbox").is(":checked") === true){	//체크여부
+
+                let product_id = $(element).find(".individual_product_id_input").val();
+                let product_count = $(element).find(".individual_product_count_input").val();
+
+                let product_id_input = "<input name='orders[" + orderNumber + "].id' type='hidden' value='" + product_id + "'>";
+                form_contents += product_id_input;
+
+                let product_count_input = "<input name='orders[" + orderNumber + "].product_count' type='hidden' value='" + product_count + "'>";
+                form_contents += product_count_input;
+
+                orderNumber += 1;
+
+            }
+        });
+
+        $(".order_form").html(form_contents);
+        $(".order_form").submit();
+
+    });
 </script>
 </body>
 </html>

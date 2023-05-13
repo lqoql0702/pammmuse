@@ -5,14 +5,14 @@
 <mapper namespace="com.pammmuse.pammmuse.repository.NoticeMapper">
 
     <!-- 게시판 목록 -->
-    <select id="getNotice" resultType="com.pammmuse.pammmuse.dto.NoticeVo">
+    <select id="getNotice" resultType="com.pammmuse.pammmuse.model.NoticeVo">
 
         select * from notice
 
     </select>
 
     <!-- 게시판 조회 -->
-    <select id="getDetail" resultType="com.pammmuse.pammmuse.dto.NoticeVo">
+    <select id="getDetail" resultType="com.pammmuse.pammmuse.model.NoticeVo">
 
         select * from notice where id = #{id}
 

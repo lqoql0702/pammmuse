@@ -1,6 +1,6 @@
 package com.pammmuse.pammmuse.controller;
 
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @Controller

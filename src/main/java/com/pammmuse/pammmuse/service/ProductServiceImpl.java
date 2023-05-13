@@ -1,7 +1,7 @@
 package com.pammmuse.pammmuse.service;
 
 import com.pammmuse.pammmuse.domain.Criteria;
-import com.pammmuse.pammmuse.dto.ProductVo;
+import com.pammmuse.pammmuse.model.ProductVo;
 import com.pammmuse.pammmuse.repository.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

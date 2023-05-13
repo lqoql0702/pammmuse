@@ -1,4 +1,4 @@
-package com.pammmuse.pammmuse.dto;
+package com.pammmuse.pammmuse.model;
 
 import lombok.Getter;
 import lombok.Setter;

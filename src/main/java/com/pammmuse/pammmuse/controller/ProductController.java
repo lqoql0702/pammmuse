@@ -1,12 +1,10 @@
 package com.pammmuse.pammmuse.controller;
 
 import com.pammmuse.pammmuse.domain.Criteria;
-import com.pammmuse.pammmuse.dto.PageVo;
-import com.pammmuse.pammmuse.dto.ProductVo;
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.ProductVo;
+import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.service.ProductService;
 import com.pammmuse.pammmuse.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -69,8 +67,6 @@ public class ProductController {
 
         if(!list.isEmpty()){
             model.addAttribute("list", list);
-        }else{
-            model.addAttribute("pageMaker",new PageVo(cri, productService.getProductTotal(cri)));
         }
         return "/product/search";
     }

@@ -1,9 +1,8 @@
 package com.pammmuse.pammmuse.service;
 
 import com.pammmuse.pammmuse.controller.MainController;
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.repository.UserMapper;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,6 @@ import java.util.Map;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -171,5 +168,13 @@ public class UserServiceImpl implements UserService{
     public UserVo kakaoLogin(String sns_id){
         logger.info("snsId:: " + sns_id);
         return userMapper.kakaoSelect(sns_id);
+    }
+
+    /* 주문자 정보 */
+    @Override
+    public UserVo getOrderUserInfo(String username) {
+
+        return userMapper.getOrderUserInfo(username);
+
     }
 }

@@ -1,11 +1,11 @@
-package com.pammmuse.pammmuse.dto;
+package com.pammmuse.pammmuse.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CartVo {
+public class CartDto {
     private int id;
     private String username;
     private int product_id;

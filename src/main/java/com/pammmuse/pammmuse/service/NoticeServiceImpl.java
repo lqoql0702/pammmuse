@@ -1,6 +1,6 @@
 package com.pammmuse.pammmuse.service;
 
-import com.pammmuse.pammmuse.dto.NoticeVo;
+import com.pammmuse.pammmuse.model.NoticeVo;
 import com.pammmuse.pammmuse.repository.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

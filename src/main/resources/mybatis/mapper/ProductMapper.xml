@@ -3,19 +3,19 @@
 <mapper namespace="com.pammmuse.pammmuse.repository.ProductMapper">
 
     <!-- 상품 조회 페이지 -->
-    <select id="getProductInfo" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+    <select id="getProductInfo" resultType="com.pammmuse.pammmuse.model.ProductVo">
         select * from product
         where id = #{id}
     </select>
 
     <!-- 상품 리스트 -->
-    <select id="productGetList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+    <select id="productGetList" resultType="com.pammmuse.pammmuse.model.ProductVo">
         select id, product_name, product_price, product_discount, image_url
         from product
     </select>
 
     <!-- 카테고리별 상품 리스트 -->
-    <select id="productGetCateList" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+    <select id="productGetCateList" resultType="com.pammmuse.pammmuse.model.ProductVo">
         select id, product_name, cate_code, product_price, product_discount, image_url
         from product
         where cate_code = #{cate_code}
@@ -42,7 +42,7 @@
     </sql>
 
     <!-- 상품 검색 -->
-    <select id="searchProduct" resultType="com.pammmuse.pammmuse.dto.ProductVo">
+    <select id="searchProduct" resultType="com.pammmuse.pammmuse.model.ProductVo">
         select  id, product_name, cate_code, product_price, product_discount, image_url
         from product
         <include refid="criteria"></include>

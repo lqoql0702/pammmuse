@@ -1,6 +1,6 @@
 package com.pammmuse.pammmuse.repository;
 
-import com.pammmuse.pammmuse.dto.NoticeVo;
+import com.pammmuse.pammmuse.model.NoticeVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

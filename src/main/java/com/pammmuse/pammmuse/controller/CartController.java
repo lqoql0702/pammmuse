@@ -1,7 +1,7 @@
 package com.pammmuse.pammmuse.controller;
 
-import com.pammmuse.pammmuse.dto.CartVo;
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.CartDto;
+import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.service.CartService;
 import com.pammmuse.pammmuse.service.UserService;
 import org.slf4j.Logger;
@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.PortResolverImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +27,7 @@ public class CartController {
 
     @PostMapping("/cart/add")
     @ResponseBody
-    public String addCartPOST(CartVo cart) {
+    public String addCartPOST(CartDto cart) {
         String user = cart.getUsername();
         if(user == "") {
             return "5";
@@ -56,7 +54,7 @@ public class CartController {
 
     /* 장바구니 수량 수정 */
     @PostMapping("/cart/update")
-    public String updateCartPOST(CartVo cart, Model model) {
+    public String updateCartPOST(CartDto cart, Model model) {
         login(model);
 
         cartService.modifyCount(cart);
@@ -66,7 +64,7 @@ public class CartController {
 
     /* 장바구니 수량 수정 */
     @PostMapping("/cart/delete")
-    public String deleteCartPOST(CartVo cart, Model model) {
+    public String deleteCartPOST(CartDto cart, Model model) {
         login(model);
 
         cartService.deleteCart(cart.getId());

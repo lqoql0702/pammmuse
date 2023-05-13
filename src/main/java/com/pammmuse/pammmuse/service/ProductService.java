@@ -1,7 +1,7 @@
 package com.pammmuse.pammmuse.service;
 
 import com.pammmuse.pammmuse.domain.Criteria;
-import com.pammmuse.pammmuse.dto.ProductVo;
+import com.pammmuse.pammmuse.model.ProductVo;
 
 import java.util.List;
 

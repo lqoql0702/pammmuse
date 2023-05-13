@@ -335,12 +335,19 @@
                             <div class="qtyplus">+</div>
                         </form>
                         <a class="btn_cart" type="submit">Add to Cart</a>
+                        <a class="btn_buy" type="submit">Buy</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- 주문 form -->
+<form action="/order/${user.username}" method="get" class="order_form">
+    <input type="hidden" name="orders[0].id" value="${productInfo.id}">
+    <input type="hidden" name="orders[0].product_count" value="">
+</form>
+
 <div>
     <%@include file="../footer.jsp"%>
 </div>
@@ -396,6 +403,13 @@
                     }
                 })
 
+        });
+
+        /* 바로구매 버튼 */
+        $(".btn_buy").on("click", function(){
+            let product_count = $(".quantity_input").val();
+            $(".order_form").find("input[name='orders[0].product_count']").val(product_count);
+            $(".order_form").submit();
         });
 
 </script>

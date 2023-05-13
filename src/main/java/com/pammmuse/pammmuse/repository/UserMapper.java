@@ -1,11 +1,8 @@
 package com.pammmuse.pammmuse.repository;
 
-import com.pammmuse.pammmuse.dto.UserVo;
+import com.pammmuse.pammmuse.model.UserVo;
+import org.apache.catalina.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -14,6 +11,8 @@ public interface UserMapper {
     UserVo getUserById(Long id);
     void updateUser(UserVo userVo); // 회원 정보 수정
     void deleteUser(Long id); // 회원 탈퇴
+    /* 주문자 주소 정보 */
+    public UserVo getOrderUserInfo(String username);
 
     /* 카카오 로그인 */
 

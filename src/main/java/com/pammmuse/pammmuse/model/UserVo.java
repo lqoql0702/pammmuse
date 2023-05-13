@@ -1,6 +1,5 @@
-package com.pammmuse.pammmuse.dto;
+package com.pammmuse.pammmuse.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
