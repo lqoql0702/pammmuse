@@ -12,7 +12,12 @@ public class OrderItemDto {
 
     private int product_count;
 
+
     /* DB로부터 꺼내올 값 */
+    private String order_id;
+
+    private String product_id;
+
     private String product_name;
 
     private int product_price;

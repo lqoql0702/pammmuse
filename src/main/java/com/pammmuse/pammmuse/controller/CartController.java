@@ -24,13 +24,14 @@ public class CartController {
     private CartService cartService;
     @Autowired
     private UserService userService;
+    public static final String	Need_Login	= "5";
 
     @PostMapping("/cart/add")
     @ResponseBody
     public String addCartPOST(CartDto cart) {
         String user = cart.getUsername();
         if(user == "") {
-            return "5";
+            return Need_Login;
         }
 
         log.info("장바구니  추가");

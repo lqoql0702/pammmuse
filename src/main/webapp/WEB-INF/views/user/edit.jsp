@@ -28,7 +28,9 @@
                 </div>
                 <input type="text" name="email" class="form-control input-lg" value="${user.email}"   />
                 <input type="password" name="password" class="form-control input-lg" placeholder="Password를 입력해주세요"  />
-                <input type="text" name="address" class="form-control input-lg" value="${user.address}"  />
+                <input type="text" name="user_addr1" class="form-control input-lg" value="${user.user_addr1}"  />
+                <input type="text" name="user_addr2" class="form-control input-lg" value="${user.user_addr2}"  />
+                <input type="text" name="user_addr2" class="form-control input-lg" value="${user.user_addr3}"  />
                 <input type="text" name="phone" class="form-control input-lg" value="${user.phone}"  />
 
                 <br />

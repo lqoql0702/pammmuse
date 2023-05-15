@@ -370,7 +370,12 @@
                     <tr>
                         <th>주소</th>
                         <td>
-                            ${userInfo.address}
+                            ${userInfo.user_addr1} ${userInfo.user_addr2} ${userInfo.user_addr2}
+                                <input class="selectAddress" value="T" type="hidden">
+                                <input class="addressee_input" value="${userInfo.username}" type="hidden">
+                                <input class="address1_input" type="hidden" value="${userInfo.user_addr1}">
+                                <input class="address2_input" type="hidden" value="${userInfo.user_addr2}">
+                                <input class="address3_input" type="hidden" value="${userInfo.user_addr3}">
                         </td>
                     </tr>
                     </tbody>
@@ -392,7 +397,7 @@
                     <tr>
                         <th>주소</th>
                         <td>
-
+                            <input class="selectAddress" value="F" type="hidden">
                             <input class="address1_input" readonly="readonly"> <a class="address_search_btn" onclick="execution_daum_address()">주소 찾기</a><br>
                             <input class="address2_input" readonly="readonly"><br>
                             <input class="address3_input" readonly="readonly">
@@ -483,7 +488,17 @@
         </div>
     </div>
 </div>
-
+<!-- 주문 요청 form -->
+<form class="order_form" action="/order" method="post">
+    <!-- 주문자 회원번호 -->
+    <input name="username" value="${userInfo.username}" type="hidden">
+    <!-- 주소록 & 받는이-->
+    <input name="addressee" type="hidden">
+    <input name="user_addr1" type="hidden">
+    <input name="user_addr2" type="hidden">
+    <input name="user_addr3" type="hidden">
+    <!-- 상품 정보 -->
+</form>
 <%@include file="footer.jsp"%>
 
 <script>
@@ -507,6 +522,13 @@
         $(".address_btn").css('backgroundColor', '#555');
         /* 지정 색상 변경 */
         $(".address_btn_"+className).css('backgroundColor', '#3c3838');
+        /* selectAddress T/F */
+        /* 모든 selectAddress F만들기 */
+        $(".addressInfo_input_div").each(function(i, obj){
+            $(obj).find(".selectAddress").val("F");
+        });
+        /* 선택한 selectAdress T만들기 */
+        $(".addressInfo_input_div_" + className).find(".selectAddress").val("T");
     }
 
     /* 다음 주소 연동 */
@@ -608,6 +630,33 @@
         $(".final_total_price_span").text(final_total_price.toLocaleString());
 
     }
+
+    /* 주문 요청 */
+    $(".order_btn").on("click", function(){
+        /* 주소 정보 & 받는이*/
+        $(".addressInfo_input_div").each(function(i, obj){
+            if($(obj).find(".selectAddress").val() === 'T'){
+                $("input[name='addressee']").val($(obj).find(".addressee_input").val());
+                $("input[name='user_addr1']").val($(obj).find(".address1_input").val());
+                $("input[name='user_addr2']").val($(obj).find(".address2_input").val());
+                $("input[name='user_addr3']").val($(obj).find(".address3_input").val());
+            }
+        });
+        /* 상품정보 */
+        let form_contents = '';
+        $(".goods_table_price_td").each(function(index, element){
+            let id = $(element).find(".individual_id_input").val();
+            let product_count = $(element).find(".individual_product_count_input").val();
+            let id_input = "<input name='orders[" + index + "].id' type='hidden' value='" + id + "'>";
+            form_contents += id_input;
+            let product_count_input = "<input name='orders[" + index + "].product_count' type='hidden' value='" + product_count + "'>";
+            form_contents += product_count_input;
+        });
+        $(".order_form").append(form_contents);
+
+        /* 서버 전송 */
+        $(".order_form").submit();
+    });
 </script>
 </body>
 </html>

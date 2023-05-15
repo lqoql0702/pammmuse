@@ -219,6 +219,22 @@
             color: #212529;
             text-decoration: none;
         }
+        .btn_buy {
+            border-radius: 4px;
+            background: #212529;
+            color: #fff;
+            padding: 7px 45px;
+            display: inline-block;
+            margin-top: 20px;
+            border: solid 2px #212529;
+            transition: all 0.5s ease-in-out 0s;
+        }
+        .btn_buy:hover,
+        .btn_buy:focus {
+            background: transparent;
+            color: #212529;
+            text-decoration: none;
+        }
 
         .product-info-tabs {
             margin-top: 25px;

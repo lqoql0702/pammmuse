@@ -44,5 +44,11 @@
 
     </select>
 
+    <delete id="deleteOrderCart">
+
+        delete from cart where username = #{username} and id = #{id}
+
+    </delete>
+
 
 </mapper>

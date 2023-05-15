@@ -11,9 +11,9 @@
     <!-- 회원가입 -->
     <insert id="insertUser">
         INSERT INTO user
-        (name, username, email, password, address, phone)
+        (name, username, email, password, user_addr1, user_addr2, user_addr3, phone)
         VALUES
-        (#{name}, #{username}, #{email}, #{password}, #{address}, #{phone})
+        (#{name}, #{username}, #{email}, #{password}, #{user_addr1}, #{user_addr2}, #{user_addr3}, #{phone})
     </insert>
 
     <!-- 회원 정보 가져오기 -->
@@ -36,7 +36,9 @@
         username = #{username},
         email = #{email},
         password = #{password},
-        address = #{address},
+        user_addr1 = #{user_addr1},
+        user_addr2 = #{user_addr2},
+        user_addr3 = #{user_addr3},
         phone = #{phone}
         WHERE id = #{id}
     </update>
@@ -51,7 +53,7 @@
     <!-- 주문자 정보 -->
     <select id="getOrderUserInfo" resultType="com.pammmuse.pammmuse.model.UserVo">
 
-        SELECT username, name, email, address
+        SELECT username, name, email, user_addr1, user_addr2, user_addr3
         FROM user
         WHERE username = #{username}
 
@@ -65,7 +67,7 @@
     </insert>
 
     <select id="kakaoSelect">
-        SELECT NAME, USERNAME, EMAIL, ADDRESS, PHONE FROM USER WHERE SNS_ID = #{sns_id}
+        SELECT NAME, USERNAME, EMAIL, user_addr1, user_addr2, user_addr3, PHONE FROM USER WHERE SNS_ID = #{sns_id}
     </select>
 
     <select id="findUserIdBy2">

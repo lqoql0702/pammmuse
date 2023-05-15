@@ -11,7 +11,9 @@ public class UserVo {
     private String username;
     private String email;
     private String password;
-    private String address;
+    private String user_addr1;
+    private String user_addr2;
+    private String user_addr3;
     private String phone;
     private String sns_id;
 

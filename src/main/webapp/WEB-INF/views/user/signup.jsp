@@ -30,7 +30,9 @@
                 </div>
                 <input type="text" name="email" class="form-control input-lg" placeholder="Email"  />
                 <input type="password" name="password" class="form-control input-lg" placeholder="Password"  />
-                <input type="text" name="address" class="form-control input-lg" placeholder="Address"  />
+                <input type="text" name="user_addr1" class="form-control input-lg" placeholder="Zip Code"  />
+                <input type="text" name="user_addr2" class="form-control input-lg" placeholder="Address2"  />
+                <input type="text" name="user_addr3" class="form-control input-lg" placeholder="Address3"  />
                 <input type="text" name="phone" class="form-control input-lg" placeholder="Phone"  />
 
                 <br />
