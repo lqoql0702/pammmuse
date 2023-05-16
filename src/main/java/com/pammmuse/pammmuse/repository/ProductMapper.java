@@ -21,7 +21,5 @@ public interface ProductMapper {
     /* 상품 검색 */
     public List<ProductVo> searchProduct(Criteria cri);
 
-    /* 상품 총 갯수 */
-    public int getProductTotal(Criteria cri);
 
 }

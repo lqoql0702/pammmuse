@@ -43,11 +43,7 @@ public class ProductServiceImpl implements ProductService{
         return productMapper.searchProduct(cri);
     }
 
-    /* 상품 총 갯수 */
-    @Override
-    public int getProductTotal(Criteria cri){
-        return productMapper.getProductTotal(cri);
-    }
+
 
 
 }

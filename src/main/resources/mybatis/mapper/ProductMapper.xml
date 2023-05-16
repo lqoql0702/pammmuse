@@ -28,9 +28,6 @@
             <foreach item="type" collection="typeArr">
                 <trim prefix="AND">
                     <choose>
-<!--                        <when test="type == 'C'.toString()">-->
-<!--                            cate_code like concat ('%', #{cate_code}, '%')-->
-<!--                        </when>-->
                         <when test="type == 'T'.toString()">
                             product_name like concat ('%', #{keyword}, '%')
                         </when>
@@ -47,16 +44,8 @@
         from product
         <include refid="criteria"></include>
         order by id desc
-        limit #{skip}, #{amount}
 
     </select>
 
-    <!-- 상품 총 개수 -->
-    <select id="getProductTotal" resultType="int">
-        select count(*) from product
-
-        <include refid="criteria"></include>
-
-    </select>
 
 </mapper>

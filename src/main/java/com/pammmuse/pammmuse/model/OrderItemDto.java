@@ -10,7 +10,7 @@ public class OrderItemDto {
     /* 뷰로부터 전달받을 값 */
     private int id;
 
-    private int product_count;
+    private Integer product_count;
 
 
     /* DB로부터 꺼내올 값 */

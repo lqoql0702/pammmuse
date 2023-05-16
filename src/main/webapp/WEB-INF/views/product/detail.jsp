@@ -327,27 +327,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="size">Size</label>
-                            <select id="size" name="size" class="form-control">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
+                            <div class="size" id="size">${productInfo.product_size}</div>
                         </div>
                         <div class="col-md-6">
                             <label for="color">Color</label>
-                            <select id="color" name="color" class="form-control">
-                                <option>Blue</option>
-                                <option>Green</option>
-                                <option>Red</option>
-                            </select>
+                            <div class="color" id="color">${productInfo.product_color}</div>
                         </div>
                     </div>
                     <div class="product-count">
                         <label for="size">Quantity</label>
                         <form action="#" class="display-flex">
                             <div class="qtyminus">-</div>
-                            <input type="text" name="quantity" value="1" class="qty">
+                            <input type="text" name="quantity" id="quantity" value="1" class="qty">
                             <div class="qtyplus">+</div>
                         </form>
                         <a class="btn_cart" type="submit">Add to Cart</a>
@@ -423,7 +414,7 @@
 
         /* 바로구매 버튼 */
         $(".btn_buy").on("click", function(){
-            let product_count = $(".quantity_input").val();
+            let product_count = $("#quantity").val();
             $(".order_form").find("input[name='orders[0].product_count']").val(product_count);
             $(".order_form").submit();
         });
