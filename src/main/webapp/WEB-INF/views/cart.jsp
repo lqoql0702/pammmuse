@@ -322,7 +322,6 @@
                                     <button class="quantity_btn plus_btn">+</button>
                                     <button class="quantity_btn minus_btn">-</button>
                                 </div>
-<%--                                <a class="quantity_modify_btn" data-cartId="${ci.id}">변경</a>--%>
                                 <button type="button" class="quantity_modify_btn" data-cartId="${ci.id}" style="font-size:12px; padding:3px 3px;">변경</button>
                             </td>
                             <td>
@@ -338,26 +337,18 @@
                             &nbsp;
                             <td class="td_width_1 cart_info_td">
                                 <div class="form-check">
-                                    <input class="individual_cart_checkbox" type="checkbox" value="" id="flexCheckChecked" checked="checked">
+                                    <input class="individual_cart_checkbox" type="checkbox"  checked="checked">
                                 </div>
-                                <input type="hidden" class="individual_product_price_input" value="${ci.product_price}">
-                                <input type="hidden" class="individual_sale_price_input" value="${ci.sale_price}">
-                                <input type="hidden" class="individual_product_count_input" value="${ci.product_count}">
-                                <input type="hidden" class="individual_total_price_input" value="${ci.sale_price * ci.product_count}">
-                                <input type="hidden" class="individual_product_id_input" value="${ci.id}">
+                                <input type="hidden" class="individual_product_price_input"  value="${ci.product_price}">
+                                <input type="hidden" class="individual_sale_price_input"  value="${ci.sale_price}">
+                                <input type="hidden" class="individual_product_count_input"  value="${ci.product_count}">
+                                <input type="hidden" class="individual_total_price_input"  value="${ci.sale_price * ci.product_count}">
+                                <input type="hidden" class="individual_product_id_input"  value="${ci.product_id}">
                             </td>
                         </tr>
                         </c:forEach>
                         </tbody>
                     </table>
-                    <%--<div class="coupon-box">
-                        <form action="#" method="get" accept-charset="utf-8">
-                            <div class="coupon-input">
-                                <input type="text" name="coupon code" placeholder="Coupon Code">
-                                <button type="submit" class="round-black-btn">Apply Coupon</button>
-                            </div>
-                        </form>
-                    </div>--%>
                     <!-- 수량 조정 form -->
                     <form action="/cart/update" method="post" class="quantity_update_form">
                         <input type="hidden" name="id" class="update_id">
@@ -403,7 +394,7 @@
                             </tbody>
                         </table>
                         <div class="btn-cart-totals">
-                            <a class="order_btn round-black-btn" >Buy</a>
+                            <a class="order_btn round-black-btn">Buy</a>
                         </div>
                         <!-- /.btn-cart-totals -->
                     </form>
@@ -528,6 +519,7 @@
             }
         });
 
+        console.log(form_contents);
         $(".order_form").html(form_contents);
         $(".order_form").submit();
 

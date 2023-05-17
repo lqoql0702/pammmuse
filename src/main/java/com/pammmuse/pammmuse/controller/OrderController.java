@@ -30,11 +30,14 @@ public class OrderController {
 
 
     @GetMapping("/order/{username}")
-    public String orderPgaeGET(@PathVariable("username") String username, OrderPageDto od, Model model) {
+    public String orderPgaeGET(@PathVariable("username") String username, OrderPageDto opd, Model model) {
 
         login(model);
 
-        model.addAttribute("orderList", orderService.getProductsInfo(od.getOrders()));
+        System.out.println("memberId : " + username);
+        System.out.println("orders : " + opd.getOrders());
+
+        model.addAttribute("orderList", orderService.getProductsInfo(opd.getOrders()));
         model.addAttribute("userInfo", userService.getOrderUserInfo(username));
 
         return "/order";
@@ -44,9 +47,7 @@ public class OrderController {
     @PostMapping("/order")
     public String orderPagePost(OrderDto od) {
 
-        System.out.println(od);
         orderService.order(od);
-
 
         return "redirect:/main";
     }
