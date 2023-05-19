@@ -2,13 +2,19 @@ package com.pammmuse.pammmuse.controller;
 
 import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.service.UserService;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +26,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
+@AllArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
@@ -37,7 +46,7 @@ public class UserController {
         UserVo userVo = userService.getUserById(id);
         userVo.setPassword(null); // password는 보이지 않도록 null로 설정
         model.addAttribute("user", userVo);
-        return "main";
+        return "redirect:/main";
     }
 
     @GetMapping("/user/mypage")
@@ -120,32 +129,21 @@ public class UserController {
     }
 
     @GetMapping("/user/kakao/callback")
-    public String kakaoLogin(@RequestParam String code) throws IOException {
+    public String kakaoLogin(@RequestParam("code") String code, HttpSession session, Model model) throws IOException {
         // 접속토큰 get
         String kakaoToken = userService.getReturnAccessToken(code);
-        logger.info("token"+kakaoToken);
-
         // 접속자 정보 get
         Map<String, Object> result = userService.getUserInfo(kakaoToken);
+        UserVo kakaoUser = userService.kakaoLogin(result, kakaoToken);
+        System.out.println("kakaouser"+kakaoUser);
 
-        String sns_id = (String) result.get("id");
-        String username = (String) result.get("nickname");
-        String email = (String) result.get("email");
-        String userpw = sns_id;
+        List<GrantedAuthority> roles = new ArrayList<>(1);
+        roles.add(new SimpleGrantedAuthority("USER"));
 
-        UserVo userVo = new UserVo();
-        logger.info("snsid" + userService.kakaoLogin(sns_id));
-        //일치하는 sns_id 없을 시 회원가입
-        if(userService.kakaoLogin(sns_id) == null){
-            userVo.setUsername(email);
-            userVo.setPassword(userpw);
-            userVo.setName(username);
-            userVo.setSns_id(sns_id);
-            userVo.setEmail(email);
-            userService.kakaoJoin(userVo);
-        }
-        userService.kakaoLogin(sns_id);
-        logger.info("snsid" + userService.kakaoLogin(sns_id));
+
+        Authentication auth = new UsernamePasswordAuthenticationToken(kakaoUser.getId(), null, roles);
+        SecurityContextHolder.getContext().setAuthentication(auth);
+
         return "redirect:/";
     }
 }

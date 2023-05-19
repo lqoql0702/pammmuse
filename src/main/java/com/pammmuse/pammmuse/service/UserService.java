@@ -1,6 +1,7 @@
 package com.pammmuse.pammmuse.service;
 
 import com.pammmuse.pammmuse.model.UserVo;
+import org.apache.catalina.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Map;
@@ -21,9 +22,9 @@ public interface UserService {
     /*카카오 로그인*/
     public String getReturnAccessToken(String code);
     public Map<String,Object> getUserInfo(String access_token);
-    public void kakaoJoin(UserVo userVo);
-    public UserVo kakaoLogin(String sns_id);
-//    public String findUserIdBy2(String sns_id);
+    public UserVo kakaoLogin(Map<String, Object> result, String kakaoToken);
+    public UserVo findUserIdBy2(String sns_id);
+    public UserVo findUserByEmail(String email);
 
 
 

@@ -59,19 +59,23 @@
 
     </select>
 
-    <insert id="kakaoInsert">
+    <insert id="kakaoInsert" >
         INSERT INTO user
             (name, username, email, password, sns_id)
         VALUES
             (#{name}, #{username}, #{email}, #{password}, #{sns_id})
     </insert>
 
-    <select id="kakaoSelect">
+    <select id="kakaoSelect" resultType="com.pammmuse.pammmuse.model.UserVo">
         SELECT NAME, USERNAME, EMAIL, user_addr1, user_addr2, user_addr3, PHONE FROM USER WHERE SNS_ID = #{sns_id}
     </select>
 
-    <select id="findUserIdBy2">
-        SELECT USERNAME FROM TBL_MEMBER WHERE SNSID = #{sns_id}
+    <select id="findUserIdBy2" resultType="com.pammmuse.pammmuse.model.UserVo">
+        SELECT USERNAME FROM user WHERE SNS_ID = #{sns_id}
+    </select>
+
+    <select id="findUserByEmail" resultType="com.pammmuse.pammmuse.model.UserVo">
+        SELECT email FROM user WHERE email = #{email}
     </select>
 
 

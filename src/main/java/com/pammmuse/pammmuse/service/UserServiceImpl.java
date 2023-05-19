@@ -3,9 +3,15 @@ package com.pammmuse.pammmuse.service;
 import com.pammmuse.pammmuse.controller.MainController;
 import com.pammmuse.pammmuse.model.UserVo;
 import com.pammmuse.pammmuse.repository.UserMapper;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +22,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.JsonElement;
@@ -103,6 +111,8 @@ public class UserServiceImpl implements UserService{
             access_token = element.getAsJsonObject().get("access_token").getAsString();
             refresh_token = element.getAsJsonObject().get("refresh_token").getAsString();
 
+            System.out.println("access_token : " + access_token);
+            System.out.println("refresh_token : " + refresh_token);
             br.close();
             bw.close();
         } catch (IOException e) {
@@ -119,6 +129,7 @@ public class UserServiceImpl implements UserService{
             URL url = new URL(reqURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+
 
             //요청에 필요한 Header에 포함될 내용
             conn.setRequestProperty("Authorization", "Bearer " + access_token);
@@ -159,22 +170,52 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void kakaoJoin(UserVo userVo){
-        userMapper.kakaoInsert(userVo);
-        String username = userVo.getUsername();
+    public UserVo kakaoLogin(Map<String, Object> result, String kakaoToken){
+        //카카오에서 받아온 사용자의 정보
+        String sns_id = (String) result.get("id");
+        String nickname = (String) result.get("nickname");
+        String email = (String) result.get("email");
+
+        //카카오 로그인을 통해 이미 회원가입한 회원인지 확인하기 위해 카카오ID를 통해 검색
+        UserVo userVo = userMapper.findUserIdBy2(sns_id);
+
+        //중복된 사용자가 없다면(처음으로 카카오 로그인을 하는 경우 카카오에서 받은 정보를 통한 회원가입 진행)
+        if(userVo == null) {
+            UserVo sameEmailMember = userMapper.findUserByEmail(email);
+            if(sameEmailMember.getEmail() == email){
+                //카카오로그인은 처음인데 이미 그냥 회원가입은 돼있는경우
+                userVo = sameEmailMember;
+                userVo.setSns_id(sns_id);    //이미 저장되어있는 회원 정보에 카카오 ID만 추가해서 다시 저장한다.
+                userMapper.updateUser(userVo);     //기존 회원에 카카오 아이디만 추가해준다
+            }
+            else{
+                String username = nickname;
+                String password = sns_id + kakaoToken;
+                userVo.setUsername(email);
+                userVo.setName(username);
+                userVo.setSns_id(sns_id);
+                userVo.setEmail(email);
+                userVo.setPassword(passwordEncoder.encode(password));
+                userMapper.kakaoInsert(userVo);
+            }
+        }
+        UserVo kakaoUser = userMapper.getUserByUserName(userVo.getUsername());
+
+        return kakaoUser;
     }
 
     @Override
-    public UserVo kakaoLogin(String sns_id){
-        logger.info("snsId:: " + sns_id);
-        return userMapper.kakaoSelect(sns_id);
+    public UserVo findUserIdBy2(String sns_id){
+        return userMapper.findUserIdBy2(sns_id);
     }
+    @Override
+    public UserVo findUserByEmail(String email){
+            return findUserByEmail(email);
+        }
 
     /* 주문자 정보 */
     @Override
     public UserVo getOrderUserInfo(String username) {
-
         return userMapper.getOrderUserInfo(username);
-
     }
 }

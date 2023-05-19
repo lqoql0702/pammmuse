@@ -23,7 +23,9 @@ public interface UserMapper {
     UserVo kakaoSelect(String sns_id);
 
     //snsId로 회원 아이디찾기
-    String findUserIdBy2(String sns_id);
+    UserVo findUserIdBy2(String sns_id);
+
+    UserVo findUserByEmail(String email);
 
 
 }
