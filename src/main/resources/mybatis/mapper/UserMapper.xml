@@ -67,7 +67,7 @@
     </insert>
 
     <select id="kakaoSelect" resultType="com.pammmuse.pammmuse.model.UserVo">
-        SELECT NAME, USERNAME, EMAIL, user_addr1, user_addr2, user_addr3, PHONE FROM USER WHERE SNS_ID = #{sns_id}
+        SELECT * FROM USER WHERE SNS_ID = #{sns_id}
     </select>
 
     <select id="findUserIdBy2" resultType="com.pammmuse.pammmuse.model.UserVo">

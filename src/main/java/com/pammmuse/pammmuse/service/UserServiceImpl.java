@@ -177,18 +177,18 @@ public class UserServiceImpl implements UserService{
         String email = (String) result.get("email");
 
         //카카오 로그인을 통해 이미 회원가입한 회원인지 확인하기 위해 카카오ID를 통해 검색
-        UserVo userVo = userMapper.findUserIdBy2(sns_id);
+        UserVo userVo = userMapper.kakaoSelect(sns_id);
 
         //중복된 사용자가 없다면(처음으로 카카오 로그인을 하는 경우 카카오에서 받은 정보를 통한 회원가입 진행)
         if(userVo == null) {
             UserVo sameEmailMember = userMapper.findUserByEmail(email);
-            if(sameEmailMember.getEmail() == email){
+            if(email.equals(sameEmailMember.getEmail())){
                 //카카오로그인은 처음인데 이미 그냥 회원가입은 돼있는경우
                 userVo = sameEmailMember;
                 userVo.setSns_id(sns_id);    //이미 저장되어있는 회원 정보에 카카오 ID만 추가해서 다시 저장한다.
                 userMapper.updateUser(userVo);     //기존 회원에 카카오 아이디만 추가해준다
-            }
-            else{
+
+            } else {
                 String username = nickname;
                 String password = sns_id + kakaoToken;
                 userVo.setUsername(email);
@@ -199,9 +199,7 @@ public class UserServiceImpl implements UserService{
                 userMapper.kakaoInsert(userVo);
             }
         }
-        UserVo kakaoUser = userMapper.getUserByUserName(userVo.getUsername());
-
-        return kakaoUser;
+        return userVo;
     }
 
     @Override
