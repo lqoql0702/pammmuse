@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,7 +24,7 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @GetMapping ("/main")
     public void productList(Model model){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -35,6 +36,11 @@ public class MainController {
 
         List list = productService.productGetList();
         model.addAttribute("list", list);
+    }
+
+    @GetMapping("/")
+    public String main(){
+        return "redirect:/main";
     }
 
 

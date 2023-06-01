@@ -38,7 +38,7 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @GetMapping("/")
+    @GetMapping("/loginusermain")
     public String home(Model model) { // 인증된 사용자의 정보를 보여줌
         Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         // token에 저장되어 있는 인증된 사용자의 id 값
@@ -65,7 +65,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken)
             return "/user/login";
-        return "/";
+        return "/loginusermain";
     }
 
     @GetMapping("/user/logout")
@@ -86,7 +86,7 @@ public class UserController {
         if (authentication instanceof AnonymousAuthenticationToken)
             return "/user/signup";
 
-        return "redirect:/";
+        return "redirect:/loginusermain";
     }
 
     @PostMapping("/user/signup")
@@ -115,7 +115,7 @@ public class UserController {
         Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userVo.setId(id);
         userService.edit(userVo);
-        return "redirect:/";
+        return "redirect:/loginusermain";
     }
 
     @PostMapping("/user/delete")
@@ -125,7 +125,7 @@ public class UserController {
             userService.withdraw(id);
         }
         SecurityContextHolder.clearContext(); // SecurityContextHolder에 남아있는 token 삭제
-        return "redirect:/";
+        return "redirect:/loginusermain";
     }
 
     @GetMapping("/user/kakao/callback")
@@ -144,6 +144,6 @@ public class UserController {
         Authentication auth = new UsernamePasswordAuthenticationToken(kakaoUser.getId(), null, roles);
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        return "redirect:/";
+        return "redirect:/loginusermain";
     }
 }
