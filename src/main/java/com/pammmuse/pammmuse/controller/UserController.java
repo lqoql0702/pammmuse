@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/loginusermain")
     public String home(Model model) { // 인증된 사용자의 정보를 보여줌
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         // token에 저장되어 있는 인증된 사용자의 id 값
 
         UserVo userVo = userService.getUserById(id);
@@ -51,7 +51,7 @@ public class UserController {
 
     @GetMapping("/user/mypage")
     public void myPage(Model model) { // 인증된 사용자의 정보를 보여줌
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         // token에 저장되어 있는 인증된 사용자의 id 값
 
         UserVo userVo = userService.getUserById(id);
@@ -104,7 +104,7 @@ public class UserController {
 
     @GetMapping("/user/update")
     public String editPage(Model model) { // 회원 정보 수정 페이지
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         UserVo userVo = userService.getUserById(id);
         model.addAttribute("user", userVo);
         return "/user/edit";
@@ -112,15 +112,14 @@ public class UserController {
 
     @PostMapping("/user/update")
     public String edit(UserVo userVo) { // 회원 정보 수정
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        userVo.setId(id);
+        Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         userService.edit(userVo);
         return "redirect:/loginusermain";
     }
 
     @PostMapping("/user/delete")
     public String withdraw(HttpSession session) { // 회원 탈퇴
-        Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         if (id != null) {
             userService.withdraw(id);
         }

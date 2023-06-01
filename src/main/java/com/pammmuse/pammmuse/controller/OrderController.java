@@ -55,7 +55,7 @@ public class OrderController {
     public void login(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken == false){
-            Long user_id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Long user_id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
             UserVo userVo = userService.getUserById(user_id);
             model.addAttribute("user", userVo);
         }

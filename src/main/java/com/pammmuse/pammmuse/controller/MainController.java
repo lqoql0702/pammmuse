@@ -29,7 +29,7 @@ public class MainController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken == false){
-            Long id = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Long id = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
             UserVo userVo = userService.getUserById(id);
             model.addAttribute("user", userVo);
         }
