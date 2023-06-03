@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService{
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=2ec9b40569d051b3dd40afa8bf9a0a9d");  //앱 KEY VALUE
-            sb.append("&redirect_uri=http://localhost:8080/user/kakao/callback"); // 앱 CALLBACK 경로
+            sb.append("&redirect_uri=http://ec2-3-37-36-176.ap-northeast-2.compute.amazonaws.com:8080/user/kakao/callback"); // 앱 CALLBACK 경로
             sb.append("&code=" + code);
             bw.write(sb.toString());
             bw.flush();

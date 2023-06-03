@@ -39,7 +39,7 @@
                         <input class="btn btn-lg btn-facebook btn-block" type="button" onclick="location.href='/user/signup'" value="회원가입">
                         <hr/>
                         <input class="btn btn-lg btn-facebook btn-block" type="button"
-                               onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=2ec9b40569d051b3dd40afa8bf9a0a9d&redirect_uri=http://localhost:8080/user/kakao/callback&response_type=code'"
+                               onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=2ec9b40569d051b3dd40afa8bf9a0a9d&redirect_uri=http://ec2-3-37-36-176.ap-northeast-2.compute.amazonaws.com:8080/user/kakao/callback&response_type=code'"
                                value="카카오 로그인">
                     </div>
                 </div>
