@@ -13,7 +13,7 @@
 - 사용 기술
 
   - SpringBoot 2.7.9,  Apache Tomcat 9.0, BootStrap,  Mybatis, AWS S3
-  - Java 11,  Ajax,  Jquery, JavaScript,  Git,  MVC Pttern
+  - Java 11,  Ajax,  Jquery, JavaScript,  Git,  MVC Pattern
   - MySQL DataBase
 
 - 구현 내용
