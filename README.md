@@ -4,6 +4,8 @@
 
 여성의류 쇼핑몰입니다.
 
+사이트 주소: http://ec2-3-37-36-176.ap-northeast-2.compute.amazonaws.com:8080/
+
 
 
 # Description
