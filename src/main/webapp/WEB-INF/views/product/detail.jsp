@@ -414,9 +414,14 @@
 
         /* 바로구매 버튼 */
         $(".btn_buy").on("click", function(){
-            let product_count = $("#quantity").val();
-            $(".order_form").find("input[name='orders[0].product_count']").val(product_count);
-            $(".order_form").submit();
+            console.log(form.username);
+            if(form.username === null|| form.username === '' || form.username === 'undefined') {
+                location.href="/user/login";
+            } else{
+                let product_count = $("#quantity").val();
+                $(".order_form").find("input[name='orders[0].product_count']").val(product_count);
+                $(".order_form").submit();
+            }
         });
 
 </script>
